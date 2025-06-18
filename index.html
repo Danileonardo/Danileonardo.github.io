@@ -1,15 +1,88 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hugo Leonardo Lizama Gutiérrez - Portafolio</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body { scroll-behavior: smooth; }
+    header { background-color: #0d6efd; color: #fff; padding: 100px 0; }
+    .section { padding: 80px 0; }
+  </style>
 </head>
 <body>
-  <div class="container text-center mt-5">
-    <h1 class="display-4">¡Hola! Soy Hugo Leonardo Lizama Gutiérrez</h1>
-    <p class="lead">Desarrollador Full-Stack Java Junior | Ingeniero en Conectividad y Redes | Innovador y Colaborativo</p>
-    <a href="https://github.com/Shleideric" class="btn btn-primary mt-3">Este es mi GitHub</a>
-  </div>
+
+  <!-- Inicio -->
+  <header class="text-center">
+    <h1>¡Hola! Soy Hugo Leonardo Lizama Gutiérrez</h1>
+    <p class="lead">Programador Full Stack Java | APIs REST | Cloud | SCRUM</p>
+    <a href="#proyectos" class="btn btn-light">Ver mis proyectos</a>
+  </header>
+
+  <!-- Sobre mí -->
+  <section id="sobremi" class="section container">
+    <h2 class="text-center">Sobre mí</h2>
+    <p class="text-center">Soy Programador Full-Stack especializado en Java y JavaScript, con experiencia en desarrollo, mantenimiento y optimización de páginas web. Me destaco por mi capacidad para colaborar en equipos multidisciplinarios, comunicarme de manera efectiva y adaptarme rápidamente a nuevos entornos tecnológicos. Apasionado por resolver problemas reales con soluciones eficientes.</p>
+  </section>
+
+  <!-- Proyectos -->
+  <section id="proyectos" class="section bg-light">
+    <div class="container">
+      <h2 class="text-center mb-4">Proyectos Destacados</h2>
+
+      <div class="row">
+        <!-- Proyecto MetLife -->
+        <div class="col-md-6">
+          <div class="card mb-4">
+            <div class="card-body">
+              <h5 class="card-title">MetConsulta - MetLife Chile</h5>
+              <p class="card-text"><strong>05/2025 – 06/2025</strong><br>
+                Proyecto integrador orientado a MetLife, desarrollado en equipo bajo metodología SCRUM. Investigación técnica y de negocio para adaptar propuestas tecnológicas a necesidades reales.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Proyecto Generation Chile -->
+        <div class="col-md-6">
+          <div class="card mb-4">
+            <div class="card-body">
+              <h5 class="card-title">Bootcamp Full Stack Java - Generation Chile</h5>
+              <p class="card-text"><strong>01/2025 – 05/2025</strong><br>
+                Desarrollo de aplicaciones web completas con REST APIs utilizando arquitectura en capas. Despliegue exitoso en Google Cloud Platform.</p>
+            </div>
+          </div>
+        </div>  
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Conocimientos -->
+  <section id="skills" class="section container">
+    <h2 class="text-center">Conocimientos</h2>
+    <ul class="list-group list-group-flush text-center">
+      <li class="list-group-item">Programación Backend: Java, Spring Boot, REST API, MySQL</li>
+      <li class="list-group-item">Programación Frontend: HTML, CSS, JavaScript, React, Vite</li>
+      <li class="list-group-item">DevOps: Git, GitHub </li>
+      <li class="list-group-item">Cableado estructurado y soporte técnico</li>
+    </ul>
+  </section>
+
+  <!-- Contacto -->
+  <section id="contacto" class="section container">
+    <h2 class="text-center">Contacto</h2>
+    <p class="text-center">📧 <strong>leonardo.gutial@gmail.com</strong> | 📱 <strong>+56 9 2202 3187</strong></p>
+    <div class="text-center">
+      <a href="https://github.com/Shleideric" class="btn btn-dark me-2" target="_blank">GitHub</a>
+      <a href="https://www.linkedin.com/in/hugo-leonardo-lizama-gutiérrez" class="btn btn-primary" target="_blank">LinkedIn</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white text-center py-3">
+    © 2025 Hugo Leonardo Lizama Gutiérrez
+  </footer>
+
 </body>
 </html>
