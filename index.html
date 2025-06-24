@@ -239,7 +239,7 @@ para colaborar en equipos multidisciplinarios, comunicarme de manera efectiva co
     </section>
 
     <section id="portafolio">
-  <div class="section-content">
+    <div class="section-content">
     <h2 class="display-4 mb-5 text-info">Portafolio</h2>
 
     <div class="row row-cols-1 row-cols-md-2 g-4">
@@ -402,7 +402,7 @@ para colaborar en equipos multidisciplinarios, comunicarme de manera efectiva co
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-50.3%);
+    transform: translateX(-50.4%);
   }
 }
 @keyframes slide-metlife {
@@ -415,13 +415,18 @@ para colaborar en equipos multidisciplinarios, comunicarme de manera efectiva co
 }
 
 .animate-slide {
-  animation: slide-left 4s linear infinite;
   display: flex;
   height: 44px;
   align-items: center;
   gap: 1rem;
   padding: 0;
   line-height: 44px; /* igual que height */
+  /* Esto hace que la animación se pause en hover */
+  animation-play-state: running;
+}
+
+.animate-slide:hover {
+  animation-play-state: paused;
 }
 
 .animate-slide > div {
@@ -433,6 +438,13 @@ para colaborar en equipos multidisciplinarios, comunicarme de manera efectiva co
   white-space: nowrap;
   border-radius: 8px;
   line-height: normal; /* para que el texto se centre bien con flex */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.animate-slide > div:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+  z-index: 2;
 }
 
 .animate-slide i {
@@ -447,7 +459,7 @@ para colaborar en equipos multidisciplinarios, comunicarme de manera efectiva co
 }
 
 .animate-metlife {
-  animation: slide-metlife 12s linear infinite;
+  animation: slide-metlife 7s linear infinite;
 }
 
 /* Para que las imágenes tengan la misma altura y ancho */
