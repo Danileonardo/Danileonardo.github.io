@@ -1,88 +1,619 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hugo Leonardo Lizama Gutiérrez - Portafolio</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Perfil Web - Hugo Leonardo Lizama</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
   <style>
-    body { scroll-behavior: smooth; }
-    header { background-color: #0d6efd; color: #fff; padding: 100px 0; }
-    .section { padding: 80px 0; }
+    :root {
+      --color-sidebar-bg: #1a2f40;
+      --color-content-bg: #0d1a28;
+      --color-content-text: #d8f3f2;
+      --color-link-hover: #4de0d0;
+      --color-border: rgba(77, 224, 208, 0.3);
+    }
+
+    body {
+      margin: 0;
+      overflow-x: hidden;
+      background-color: var(--color-content-bg);
+      color: var(--color-content-text);
+      scroll-behavior: smooth;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    #sidebar {
+      background-color: var(--color-sidebar-bg);
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 220px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 0 1rem;
+      box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    #sidebar img {
+      width: 140px;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid var(--color-content-text);
+      margin-bottom: 1.5rem;
+    }
+
+    #sidebar a {
+      width: 100%;
+      color: var(--color-content-text);
+      font-weight: 600;
+      text-decoration: none;
+      padding: 0.6rem 1rem;
+      border-left: 4px solid transparent;
+      transition: 0.3s;
+      border-radius: 0 8px 8px 0;
+      text-align: center;
+    }
+
+    #sidebar a:hover,
+    #sidebar a.active {
+      border-left-color: var(--color-link-hover);
+      background-color: rgba(77, 224, 208, 0.15);
+      color: var(--color-link-hover);
+    }
+
+    #content {
+      margin-left: 220px;
+      padding: 2rem 3rem;
+      background-color: var(--color-content-bg);
+      color: var(--color-content-text);
+    }
+
+    #inicio {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      padding-left: 3rem;
+      padding-right: 3rem;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    section:not(#inicio) {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      padding: 3rem;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .section-content {
+      max-width: 900px;
+      text-align: left;
+    }
+
+    h1,
+    h2 {
+      color: var(--color-link-hover);
+      margin-bottom: 1rem;
+    }
+
+    a,
+    a:visited {
+      color: var(--color-link-hover);
+    }
+
+    a:hover {
+      color: #33cec1;
+    }
+
+    ul {
+      padding-left: 1.3rem;
+    }
+
+    .btn-outline-info {
+      border-color: var(--color-link-hover);
+      color: var(--color-link-hover);
+    }
+
+    .btn-outline-info:hover {
+      background-color: var(--color-link-hover);
+      color: #0d1a28;
+    }
+
+    .btn-info {
+      background-color: var(--color-link-hover);
+      border-color: var(--color-link-hover);
+      color: #0d1a28;
+    }
+
+    .btn-info:hover {
+      background-color: #33cec1;
+      color: #0d1a28;
+    }
+
+    .border-bottom {
+      border-color: var(--color-border) !important;
+    }
+
+    .text-secondary {
+      color: #b2cdd0 !important;
+    }
+
+    .card-text,
+    small {
+      color: #a5c4c7 !important;
+    }
+
+    .rounded {
+      border-radius: 0.75rem !important;
+    }
+
+    .shadow-sm {
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4) !important;
+    }
+
+    .modal-content.bg-dark {
+      background-color: #102534;
+    }
+
+    .btn-close-white {
+      filter: invert(1);
+    }
   </style>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 </head>
 <body>
+  <nav id="sidebar">
+    <img src="assets/WhatsApp Image 2025-04-13 at 20.39.11.jpeg" alt="Foto de Hugo Leonardo" style="width: 180px; height: 180px;" />
+    <a href="#inicio" class="active">Inicio</a>
+    <a href="#sobremi">Sobre mí</a>
+    <a href="#portafolio">Portafolio</a>
+    <a href="#educacion">Educación</a>
+    <a href="#habilidades">Habilidades</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
 
-  <!-- Inicio -->
-  <header class="text-center">
-    <h1>¡Hola! Soy Hugo Leonardo Lizama Gutiérrez</h1>
-    <p class="lead">Programador Full Stack Java | APIs REST | Cloud | SCRUM</p>
-    <a href="#proyectos" class="btn btn-light">Ver mis proyectos</a>
-  </header>
+  <main id="content">
 
-  <!-- Sobre mí -->
-  <section id="sobremi" class="section container"> 
-    <h2 class="text-center">Sobre mí</h2>
-    <p class="text-center">Soy Programador Full-Stack especializado en Java y JavaScript, con experiencia en desarrollo, mantenimiento y optimización de páginas web. Me destaco por mi capacidad para colaborar en equipos multidisciplinarios, comunicarme de manera efectiva y adaptarme rápidamente a nuevos entornos tecnológicos. Apasionado por resolver problemas reales con soluciones eficientes.</p>
-  </section>
+    <section id="inicio">
+  <div class="section-content" data-aos="fade-up" data-aos-duration="1000">
+    <h1 class="display-4 fw-bold">Hugo Leonardo Lizama Gutiérrez</h1>
+    <h2 class="fs-2 text-secondary mb-3">Programador Junior Full Stack Java</h2>
 
-  <!-- Proyectos -->
-  <section id="proyectos" class="section bg-light">
-    <div class="container">
-      <h2 class="text-center mb-4">Proyectos Destacados</h2>
+    <!-- Subtítulo animado -->
+    <h4 class="text-info">
+      <span id="typed-text" class="fw-bold"></span>
+    </h4>
 
-      <div class="row">
-        <!-- Proyecto MetLife -->
-        <div class="col-md-6">
-          <div class="card mb-4">
-            <div class="card-body">
-              <h5 class="card-title">MetConsulta - MetLife Chile</h5>
-              <p class="card-text"><strong>05/2025 – 06/2025</strong><br>
-                Proyecto integrador orientado a MetLife, desarrollado en equipo bajo metodología SCRUM. Investigación técnica y de negocio para adaptar propuestas tecnológicas a necesidades reales.</p>
+    <h5 class="mt-4">BIENVENIDO A MI PORTAFOLIO COMO DESARROLLADOR TRAINEE</h5>
+    <p class="lead mt-5">
+      Si quieres ponerte en contacto conmigo escríbeme a
+      <a href="mailto:leonardo.gutial@gmail.com" class="link-info">leonardo.gutial@gmail.com</a>
+    </p>
+
+    <a href="https://drive.google.com/uc?export=download&id=1D7GzAV73fmoJcxXKsUQBEfqHGWrHw81h" target="_blank" class="btn btn-info mt-3">
+      <i class="bi bi-file-earmark-person"></i> Descarga mi currículum
+    </a>
+
+    <div class="mt-5">
+      <a href="https://github.com/Shleideric" target="_blank" class="btn btn-outline-info me-2">
+        <i class="bi bi-github"></i> GitHub
+      </a>
+      <a href="https://www.linkedin.com/in/hugo-leonardo-lizama-gutiérrez" target="_blank" class="btn btn-outline-info">
+        <i class="bi bi-linkedin"></i> LinkedIn
+      </a>
+    </div>
+  </div>
+</section>
+
+    <section id="sobremi">
+      <div class="section-content">
+        <h2 class="display-4">Sobre mí</h2>
+        <div style="height: 1rem;"></div>
+        <p class="lead"> Programador Full-Stack especializado en JavaScript, con experiencia en el desarrollo, mantenimiento y optimización de páginas web. En los proyectos que he 
+integrado, he participado en todas las etapas del ciclo de desarrollo, desde la planificación hasta la mejora continua de proyectos. Destaco por mi capacidad 
+para colaborar en equipos multidisciplinarios, comunicarme de manera efectiva con compañeros y superiores, y adaptarme rápidamente a nuevos entornos.</p>
+      <p class="lead mt-4">
+        <span style="color: #38e5da; font-weight: bold;">
+          Actualmente me encuentro en búsqueda de nuevas oportunidades laborales que me permitan seguir aprendiendo, desarrollando habilidades y aportando valor a nuevos proyectos.
+        </span>
+      </p>
+      <p class="lead mt-4" data-aos="fade-up" data-aos-delay="100" style="font-weight: bold; color: #38e5da;">
+  Intereses personales
+</p>
+<ul class="lead" data-aos="fade-up" data-aos-delay="200" style="list-style: none; padding-left: 0;">
+  <li><i class="bi bi-people" style="color: #4de0d0;"></i> Conocer personas nuevas</li>
+  <li><i class="bi bi-music-note-beamed" style="color: #4de0d0;"></i> Escuchar música</li>
+  <li><i class="bi bi-controller" style="color: #4de0d0;"></i> Videojuegos</li>
+</ul>
+      </div>
+    </section>
+
+    <section id="portafolio">
+  <div class="section-content">
+    <h2 class="display-4 mb-5 text-info">Portafolio</h2>
+
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+      
+      <!-- Proyecto MetConsulta -->
+      <div class="col">
+        <div class="border border-2 rounded-4 p-4 shadow-sm h-100">
+          <img src="assets/Captura de pantalla 2025-06-22 192116.png"
+               alt="Captura del proyecto MetConsulta"
+               class="img-fluid rounded mb-3 fixed-img"
+               style="cursor: pointer;"
+               data-bs-toggle="modal" data-bs-target="#modalMetconsulta">
+
+          <h3 class="text-info mb-1">MetConsulta - Proyecto para MetLife Chile</h3>
+          <p class="text-secondary small mb-2">Mayo – Junio 2025</p>
+          <p class="card-text small">
+            Proyecto realizado para MetLife, buscando una solución ante un problema presente en el área de salud.
+          </p>
+
+          <div class="overflow-hidden" style="max-width: 100%;">
+            <div class="d-flex animate-slide gap-3" style="min-width: max-content;">
+              <!-- Repite habilidades dos veces para loop -->
+              <div class="d-flex align-items-center gap-2 px-3 py-2 rounded text-white" style="background-color: #e34c26;">
+                <i class="bi bi-filetype-html fs-5"></i> HTML5
+              </div>
+              <div class="d-flex align-items-center gap-2 px-3 py-2 rounded text-white" style="background-color: #1572b6;">
+                <i class="bi bi-filetype-css fs-5"></i> CSS3
+              </div>
+              <div class="d-flex align-items-center gap-2 px-3 py-2 rounded text-dark" style="background-color: #f7df1e;">
+                <i class="bi bi-filetype-js fs-5"></i> JavaScript
+              </div>
+
+              <!-- Repetición -->
+              <div class="d-flex align-items-center gap-2 px-3 py-2 rounded text-white" style="background-color: #e34c26;">
+                <i class="bi bi-filetype-html fs-5"></i> HTML5
+              </div>
+              <div class="d-flex align-items-center gap-2 px-3 py-2 rounded text-white" style="background-color: #1572b6;">
+                <i class="bi bi-filetype-css fs-5"></i> CSS3
+              </div>
+              <div class="d-flex align-items-center gap-2 px-3 py-2 rounded text-dark" style="background-color: #f7df1e;">
+                <i class="bi bi-filetype-js fs-5"></i> JavaScript
+              </div>
             </div>
           </div>
         </div>
+      </div>
 
-        <!-- Proyecto Generation Chile -->
-        <div class="col-md-6">
-          <div class="card mb-4">
-            <div class="card-body">
-              <h5 class="card-title">Bootcamp Full Stack Java - Generation Chile</h5>
-              <p class="card-text"><strong>01/2025 – 05/2025</strong><br>
-                Desarrollo de aplicaciones web completas con REST APIs utilizando arquitectura en capas. Despliegue exitoso en Google Cloud Platform.</p>
+      <!-- Proyecto Generation Chile -->
+      <div class="col">
+        <div class="border border-2 rounded-4 p-4 shadow-sm h-100">
+          <img src="assets/Captura de pantalla 2025-06-23 235443.png"
+               alt="Proyecto Generation Chile"
+               class="img-fluid rounded mb-3 fixed-img"
+               style="cursor: pointer;"
+               data-bs-toggle="modal" data-bs-target="#modalGeneration">
+
+          <h3 class="text-info mb-1">Proyecto Integrador - Generation Chile</h3>
+          <p class="text-secondary small mb-2">Enero – Mayo 2025</p>
+          <p class="card-text small">
+            Proyecto final del bootcamp Full Stack JavaScript, abordando el desarrollo completo de una aplicación web desde cero con metodología ágil.
+          </p>
+
+          <div class="overflow-hidden" style="max-width: 100%;">
+            <div class="d-flex animate-slide gap-3" style="min-width: max-content;">
+
+              <!-- Habilidades repetidas para loop -->
+              <div class="d-flex align-items-center gap-2 px-3 py-2 rounded text-white" style="background-color: #e34c26;">
+                <i class="bi bi-filetype-html fs-5"></i> HTML5
+              </div>
+              <div class="d-flex align-items-center gap-2 px-3 py-2 rounded text-white" style="background-color: #1572b6;">
+                <i class="bi bi-filetype-css fs-5"></i> CSS3
+              </div>
+              <div class="d-flex align-items-center gap-2 px-3 py-2 rounded text-dark" style="background-color: #f7df1e;">
+                <i class="bi bi-filetype-js fs-5"></i> JavaScript
+              </div>
+              <div class="d-flex align-items-center gap-2 px-3 py-2 rounded text-white" style="background-color: #61dafb;">
+                <i class="bi bi-lightning-charge fs-5"></i> React
+              </div>
+              <div class="d-flex align-items-center gap-2 px-3 py-2 rounded text-white" style="background-color: #f89820;">
+                <i class="bi bi-cup-hot fs-5"></i> Java
+              </div>
+              <div class="d-flex align-items-center gap-2 px-3 py-2 rounded text-white" style="background-color: #f89820;">
+                <i class="bi bi-cup-hot fs-5"></i> Spring Boot
+              </div>
+              <div class="d-flex align-items-center gap-2 px-3 py-2 rounded text-dark" style="background-color: #6e5494;">
+                <i class="bi bi-database-fill-gear fs-5"></i> MySQL
+              </div>
+              <div class="d-flex align-items-center gap-2 px-3 py-2 rounded text-dark" style="background-color: #fbbc04;">
+                <i class="bi bi-cloud fs-5"></i> Google Cloud
+              </div>
+
+              <!-- Repetición -->
+              <div class="d-flex align-items-center gap-2 px-3 py-2 rounded text-white" style="background-color: #e34c26;">
+                <i class="bi bi-filetype-html fs-5"></i> HTML5
+              </div>
+              <div class="d-flex align-items-center gap-2 px-3 py-2 rounded text-white" style="background-color: #1572b6;">
+                <i class="bi bi-filetype-css fs-5"></i> CSS3
+              </div>
+              <div class="d-flex align-items-center gap-2 px-3 py-2 rounded text-dark" style="background-color: #f7df1e;">
+                <i class="bi bi-filetype-js fs-5"></i> JavaScript
+              </div>
+              <div class="d-flex align-items-center gap-2 px-3 py-2 rounded text-white" style="background-color: #61dafb;">
+                <i class="bi bi-lightning-charge fs-5"></i> React
+              </div>
+              <div class="d-flex align-items-center gap-2 px-3 py-2 rounded text-white" style="background-color: #f89820;">
+                <i class="bi bi-cup-hot fs-5"></i> Java
+              </div>
+              <div class="d-flex align-items-center gap-2 px-3 py-2 rounded text-white" style="background-color: #f89820;">
+                <i class="bi bi-cup-hot fs-5"></i> Spring Boot
+              </div>
+              <div class="d-flex align-items-center gap-2 px-3 py-2 rounded text-dark" style="background-color: #6e5494;">
+                <i class="bi bi-database-fill-gear fs-5"></i> MySQL
+              </div>
+              <div class="d-flex align-items-center gap-2 px-3 py-2 rounded text-dark" style="background-color: #fbbc04;">
+                <i class="bi bi-cloud fs-5"></i> Google Cloud
+              </div>
+
             </div>
           </div>
-        </div>  
+
+        </div>
       </div>
 
     </div>
-  </section>
+  </div>
 
-  <!-- Conocimientos -->
-  <section id="skills" class="section container">
-    <h2 class="text-center">Conocimientos</h2>
-    <ul class="list-group list-group-flush text-center">
-      <li class="list-group-item">Programación Backend: Java, Spring Boot, REST API, MySQL</li>
-      <li class="list-group-item">Programación Frontend: HTML, CSS, JavaScript, React, Vite</li>
-      <li class="list-group-item">DevOps: Git, GitHub </li>
-      <li class="list-group-item">Cableado estructurado y soporte técnico</li>
-    </ul>
-  </section>
-
-  <!-- Contacto -->
-  <section id="contacto" class="section container">
-    <h2 class="text-center">Contacto</h2>
-    <p class="text-center">📧 <strong>leonardo.gutial@gmail.com</strong> | 📱 <strong>+56 9 2202 3187</strong></p>
-    <div class="text-center">
-      <a href="https://github.com/Shleideric" class="btn btn-dark me-2" target="_blank">GitHub</a>
-      <a href="https://www.linkedin.com/in/hugo-leonardo-lizama-gutiérrez" class="btn btn-primary" target="_blank">LinkedIn</a>
+  <!-- Modal MetConsulta -->
+  <div class="modal fade" id="modalMetconsulta" tabindex="-1" aria-labelledby="modalMetconsultaLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content bg-dark">
+        <div class="modal-header border-0">
+          <h5 class="modal-title text-info" id="modalMetconsultaLabel">MetConsulta - Proyecto para MetLife Chile</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body text-center">
+          <img src="assets/Captura de pantalla 2025-06-22 192116.png" alt="Captura del proyecto MetConsulta" class="img-fluid rounded" />
+        </div>
+      </div>
     </div>
-  </section>
+  </div>
 
-  <!-- Footer -->
-  <footer class="bg-dark text-white text-center py-3">
-    © 2025 Hugo Leonardo Lizama Gutiérrez
-  </footer>
+  <!-- Modal Generation Chile -->
+  <div class="modal fade" id="modalGeneration" tabindex="-1" aria-labelledby="modalGenerationLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content bg-dark">
+        <div class="modal-header border-0">
+          <h5 class="modal-title text-info" id="modalGenerationLabel">Proyecto Integrador - Generation Chile</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body text-center">
+          <img src="assets/Captura de pantalla 2025-06-23 235443.png" alt="Captura del Proyecto Generation" class="img-fluid rounded" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <style>
+@keyframes slide-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-slide {
+  animation: slide-left 20s linear infinite;
+  display: flex;
+  height: 44px;
+  align-items: center;
+  gap: 1rem;
+  padding: 0;
+  line-height: 44px; /* igual que height */
+}
+
+.animate-slide > div {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  padding: 0 12px;
+  font-size: 1rem;
+  white-space: nowrap;
+  border-radius: 8px;
+  line-height: normal; /* para que el texto se centre bien con flex */
+}
+
+.animate-slide i {
+  font-size: 1.25rem;
+  margin-right: 6px;
+  line-height: normal;
+}
+
+/* Para que las imágenes tengan la misma altura y ancho */
+.fixed-img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+</style>
+</section>
+
+    <section id="educacion">
+  <div class="section-content">
+    <h2 class="display-4 mb-5">Educación</h2>
+
+    <!-- Generation Chile -->
+    <div class="d-flex align-items-center gap-4 mb-5">
+      <img src="https://falabellaretail.falabella.com/wp-content/uploads/2023/08/Generation_Chile_logo_BLUE.png"
+           alt="Generation Chile" class="img-fluid rounded border border-secondary" style="width: 120px; height: 120px; object-fit: contain;">
+      <div>
+        <h5 class="text-info mb-1">Bootcamp JavaScript - Generation Chile</h5>
+        <small class="text-secondary">01/2025 – 05/2025</small>
+        <p class="mt-2">Estudios otorgados en el área de programación JavaScript.</p>
+      </div>
+    </div>
+
+    <!-- Duoc UC -->
+    <div class="d-flex align-items-center gap-4 mb-5">
+      <img src="https://ltecnologico.cl/storage/img/noticias/duoc-uc[1].jpeg"
+           alt="Duoc UC" class="img-fluid rounded border border-secondary" style="width: 120px; height: 120px; object-fit: contain;">
+      <div>
+        <h5 class="text-info mb-1">Educación Superior - Duoc UC</h5>
+        <small class="text-secondary">03/2019 – 12/2022</small>
+        <p class="mt-2">Estudios realizados en Ingeniería en Conectividad y Redes.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+    <section id="habilidades">
+  <div class="section-content text-start">
+    <h2 class="display-4 mb-5">Habilidades</h2>
+
+    <!-- Frontend -->
+    <h4 class="text-info mb-3">Frontend</h4>
+    <div class="d-flex justify-content-start flex-wrap gap-3 mb-4">
+      <div class="d-flex align-items-center gap-2 px-3 py-2 rounded text-dark" style="background-color: #f7df1e;">
+        <i class="bi bi-filetype-js fs-5"></i> JavaScript
+      </div>
+      <div class="d-flex align-items-center gap-2 px-3 py-2 rounded text-white" style="background-color: #61dafb;">
+        <i class="bi bi-lightning-charge fs-5"></i> React
+      </div>
+      <div class="d-flex align-items-center gap-2 px-3 py-2 rounded text-white" style="background-color: #7952b3;">
+        <i class="bi bi-bootstrap fs-5"></i> Bootstrap 5
+      </div>
+      <div class="d-flex align-items-center gap-2 px-3 py-2 rounded text-white" style="background-color: #1572b6;">
+        <i class="bi bi-filetype-css fs-5"></i> CSS3
+      </div>
+      <div class="d-flex align-items-center gap-2 px-3 py-2 rounded text-white" style="background-color: #e34c26;">
+        <i class="bi bi-filetype-html fs-5"></i> HTML5
+      </div>
+    </div>
+
+    <!-- Backend -->
+    <h4 class="text-info mb-3">Backend</h4>
+    <div class="d-flex justify-content-start flex-wrap gap-3 mb-4">
+      <div class="d-flex align-items-center gap-2 px-3 py-2 rounded text-white" style="background-color: #f89820;">
+        <i class="bi bi-cup-hot fs-5"></i> Java
+      </div>
+      <div class="d-flex align-items-center gap-2 px-3 py-2 rounded text-white" style="background-color: #f89820;">
+        <i class="bi bi-cup-hot fs-5"></i> Spring Boot
+      </div>
+      <div class="d-flex align-items-center gap-2 px-3 py-2 rounded text-dark" style="background-color: #6e5494;">
+        <i class="bi bi-database-fill-gear fs-5"></i> MySQL
+      </div>
+    </div>
+
+    <!-- Control de Versiones -->
+    <h4 class="text-info mb-3">Control de Versiones</h4>
+    <div class="d-flex justify-content-start flex-wrap gap-3 mb-4">
+      <div class="d-flex align-items-center gap-2 px-3 py-2 rounded text-white" style="background-color: #f1502f;">
+        <i class="bi bi-git fs-5"></i> Git
+      </div>
+      <div class="d-flex align-items-center gap-2 px-3 py-2 rounded text-white" style="background-color: #24292e;">
+        <i class="bi bi-github fs-5"></i> GitHub
+      </div>
+    </div>
+
+    <!-- Cloud -->
+    <h4 class="text-info mb-3">Cloud</h4>
+    <div class="d-flex justify-content-start flex-wrap gap-3 mb-4">
+      <div class="d-flex align-items-center gap-2 px-3 py-2 rounded text-dark" style="background-color: #fbbc04;">
+        <i class="bi bi-cloud fs-5"></i> Google Cloud
+      </div>
+    </div>
+
+    <!-- Metodologías -->
+    <h4 class="text-info mb-3">Metodologías Ágiles</h4>
+    <div class="d-flex justify-content-start flex-wrap gap-3 mb-4">
+      <div class="d-flex align-items-center gap-2 px-3 py-2 rounded text-white" style="background-color: #6c757d;">
+        <i class="bi bi-kanban fs-5"></i> SCRUM
+      </div>
+    </div>
+
+  </div>
+</section>
+
+    <section id="contacto" class="d-flex flex-column justify-content-center align-items-start min-vh-100 border-bottom border-secondary px-4">
+  <div class="section-content">
+
+    <h2 class="display-4 mb-4">Contacto</h2>
+
+    <p class="fs-5 mb-3"><i class="bi bi-geo-alt-fill text-info"></i> Talagante de Chile</p>
+    <p class="fs-5 mb-3"><i class="bi bi-envelope-fill text-info"></i> <a href="mailto:leonardo.gutial@gmail.com" class="link-info">leonardo.gutial@gmail.com</a></p>
+    <p class="fs-5 mb-4"><i class="bi bi-phone-fill text-info"></i> +56 9 2202 3187</p>
+
+    <div class="d-flex gap-3">
+      <a href="https://github.com/Shleideric" target="_blank" class="btn btn-outline-info d-flex align-items-center gap-2">
+        <i class="bi bi-github"></i> GitHub
+      </a>
+      <a href="https://www.linkedin.com/in/hugo-leonardo-lizama-gutiérrez" target="_blank" class="btn btn-outline-info d-flex align-items-center gap-2">
+        <i class="bi bi-linkedin"></i> LinkedIn
+      </a>
+    </div>
+<!-- "Desarrollado con" integrado al final de la sección Contacto -->
+<div class="w-100 mt-5">
+  <h5 class="fw-bold mb-4 text-start" style="color: #38e5da;">ESTE SITIO ESTÁ DESARROLLADO CON:</h5>
+  <div class="d-flex justify-content-start flex-wrap gap-3">
+
+    <div class="d-flex align-items-center gap-2 px-3 py-2 rounded text-white" style="background-color: #e34c26;">
+      <i class="bi bi-filetype-html fs-5"></i> <span class="text-start">HTML5</span>
+    </div>
+
+    <div class="d-flex align-items-center gap-2 px-3 py-2 rounded text-white" style="background-color: #1572b6;">
+      <i class="bi bi-filetype-css fs-5"></i> <span class="text-start">CSS3</span>
+    </div>
+
+    <div class="d-flex align-items-center gap-2 px-3 py-2 rounded text-white" style="background-color: #7952b3;">
+      <i class="bi bi-bootstrap fs-5"></i> <span class="text-start">Bootstrap 5</span>
+    </div>
+
+  </div>
+</div>
+</div>
+
+  </main>
+
+  <script>
+const sections = document.querySelectorAll("section");
+const navLinks = document.querySelectorAll("#sidebar a");
+
+window.addEventListener("scroll", () => {
+  let current = "";
+  sections.forEach((section) => {
+  const sectionTop = section.offsetTop - 150;
+  if (pageYOffset >= sectionTop) {
+    current = section.getAttribute("id");
+  }
+  });
+
+  navLinks.forEach((link) => {
+  link.classList.remove("active");
+  if (link.getAttribute("href") === "#" + current) {
+    link.classList.add("active");
+  }
+  });
+});
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init();
+
+  const typed = new Typed("#typed-text", {
+    strings: ["Java", "Spring Boot", "JavaScript", "React", "Git", "Google Cloud"],
+    typeSpeed: 70,
+    backSpeed: 50,
+    backDelay: 1500,
+    loop: true
+  });
+</script>
 
 </body>
 </html>
