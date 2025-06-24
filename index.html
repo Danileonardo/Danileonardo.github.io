@@ -228,7 +228,7 @@ para colaborar en equipos multidisciplinarios, comunicarme de manera efectiva co
         </span>
       </p>
       <p class="lead mt-4" data-aos="fade-up" data-aos-delay="100" style="font-weight: bold; color: #38e5da;">
-  Intereses personales
+  Intereses personales  
 </p>
 <ul class="lead" data-aos="fade-up" data-aos-delay="200" style="list-style: none; padding-left: 0;">
   <li><i class="bi bi-people" style="color: #4de0d0;"></i> Conocer personas nuevas</li>
@@ -246,7 +246,7 @@ para colaborar en equipos multidisciplinarios, comunicarme de manera efectiva co
       
       <!-- Proyecto MetConsulta -->
       <div class="col">
-        <div class="border border-2 rounded-4 p-4 shadow-sm h-100">
+        <div class="border border-2 rounded-4 p-4 shadow-sm h-100 d-flex flex-column justify-content-between">
           <img src="assets/Captura de pantalla 2025-06-22 192116.png"
                alt="Captura del proyecto MetConsulta"
                class="img-fluid rounded mb-3 fixed-img"
@@ -260,7 +260,7 @@ para colaborar en equipos multidisciplinarios, comunicarme de manera efectiva co
           </p>
 
           <div class="overflow-hidden" style="max-width: 100%;">
-            <div class="d-flex animate-slide gap-3" style="min-width: max-content;">
+            <div class="d-flex animate-slide animate-metlife gap-3" style="min-width: max-content;">
               <!-- Repite habilidades dos veces para loop -->
               <div class="d-flex align-items-center gap-2 px-3 py-2 rounded text-white" style="background-color: #e34c26;">
                 <i class="bi bi-filetype-html fs-5"></i> HTML5
@@ -289,7 +289,7 @@ para colaborar en equipos multidisciplinarios, comunicarme de manera efectiva co
 
       <!-- Proyecto Generation Chile -->
       <div class="col">
-        <div class="border border-2 rounded-4 p-4 shadow-sm h-100">
+        <div class="border border-2 rounded-4 p-4 shadow-sm h-100 d-flex flex-column justify-content-between">
           <img src="assets/Captura de pantalla 2025-06-23 235443.png"
                alt="Proyecto Generation Chile"
                class="img-fluid rounded mb-3 fixed-img"
@@ -303,7 +303,7 @@ para colaborar en equipos multidisciplinarios, comunicarme de manera efectiva co
           </p>
 
           <div class="overflow-hidden" style="max-width: 100%;">
-            <div class="d-flex animate-slide gap-3" style="min-width: max-content;">
+            <div class="d-flex animate-slide animate-generation gap-3" style="min-width: max-content;">
 
               <!-- Habilidades repetidas para loop -->
               <div class="d-flex align-items-center gap-2 px-3 py-2 rounded text-white" style="background-color: #e34c26;">
@@ -397,17 +397,25 @@ para colaborar en equipos multidisciplinarios, comunicarme de manera efectiva co
   </div>
 
   <style>
-@keyframes slide-left {
+@keyframes slide-generation {
   0% {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-50%);
+    transform: translateX(-50.3%);
+  }
+}
+@keyframes slide-metlife {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-51%);
   }
 }
 
 .animate-slide {
-  animation: slide-left 20s linear infinite;
+  animation: slide-left 4s linear infinite;
   display: flex;
   height: 44px;
   align-items: center;
@@ -431,6 +439,15 @@ para colaborar en equipos multidisciplinarios, comunicarme de manera efectiva co
   font-size: 1.25rem;
   margin-right: 6px;
   line-height: normal;
+}
+
+/* Aplicaciones específicas */
+.animate-generation {
+  animation: slide-generation 7s linear infinite;
+}
+
+.animate-metlife {
+  animation: slide-metlife 12s linear infinite;
 }
 
 /* Para que las imágenes tengan la misma altura y ancho */
